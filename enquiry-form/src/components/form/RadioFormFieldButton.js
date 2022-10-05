@@ -1,25 +1,25 @@
 import React from "react";
 
-export default function RadioFormField(props) {
+export default function RadioFormFieldButton(props) {
   return (
     <>
-      <div className="d-flex gap-2 mt-2">
+      <div className="row row-cols-3 mt-2" style={{gap:"4px 0"}}>
         {props.values.map((item, index) => {
           return (
-            <div key={index}>
-              <div className="form-check" >
+            <div className="col" key={index}>
                 <input
                   type="radio"
                   name={props.name}
                   onChange={props.updateFormField}
                   checked={item === props.fieldValue}
                   value={item}
-                  className="form-check-input"
+                  className="btn-check"
+                  id={item}
+                  autoComplete="off"
                 />
-                <label className="form-check-label" htmlFor={props.name}>
+                <label className="btn btn-sm btn-light w-100 text-center" htmlFor={item}>
                   {item}
                 </label>
-              </div>
             </div>
           );
         })}

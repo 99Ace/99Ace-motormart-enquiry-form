@@ -1,10 +1,11 @@
-import './App.css';
-import EnquiryForm from './components/EnquiryForm';
+// import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import SampleEnquiryForm from './components/SampleEnquiryForm';
 
 function App() {
   return (
-    <div className="App">
-      <EnquiryForm />
+    <div className="p-1">
+      <SampleEnquiryForm />
     </div>
   );
 }
