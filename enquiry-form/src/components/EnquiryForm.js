@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
-import FormField from './form/FormField';
+import InputFormField from './form/InputFormField';
+import TextBoxFormField from './form/TextBoxFormField';
+import RadioFormField from './form/RadioFormField';
 
 export default function EnquiryForm(props) {
     const [form, setForm] = useState({
         plateNumber:"",
-        ownerId:""
+        ownerId:"",
+        description:"",
+        petrolType:"Petrol",
+        transmission:"Auto"
     });
     
     const submitForm =()=> {
@@ -20,20 +25,44 @@ export default function EnquiryForm(props) {
     
     return (<>
     <h1>Enquiry Form</h1>
-    <FormField 
+    <InputFormField 
         type="text"
         name="plateNumber"
         placeholder="car plate number"
         updateFormField = {updateFormField}
         value={form.plateNumber}
     />
-    <FormField 
+    <InputFormField 
         type="text"
         name="ownerId"
         placeholder="last 4 char (e.g 123D)"
         updateFormField = {updateFormField}
         value={form.ownerId}
     />
+
+    <TextBoxFormField
+        name="description"
+        placeholder="other information, e.g accessories"
+        updateFormField = {updateFormField}
+        value={form.description}
+    />
+
+    <RadioFormField 
+        type="radio"
+        name="petrolType"
+        updateFormField = {updateFormField}
+        values={["Petrol","Diesel","Hybrid","EV"]}
+        fieldValue={form.petrolType}
+    />
+
+    <RadioFormField 
+        type="radio"
+        name="transmission"
+        updateFormField = {updateFormField}
+        values={["Auto", "Manual"]}
+        fieldValue={form.transmission}
+    />
+   
     <button onClick={ ()=>submitForm() }>Submit</button>
     </>);
 }
