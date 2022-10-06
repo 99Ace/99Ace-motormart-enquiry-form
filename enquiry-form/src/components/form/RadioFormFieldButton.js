@@ -1,9 +1,14 @@
 import React from "react";
 
 export default function RadioFormFieldButton(props) {
+  const colsInRow=(col)=> {
+    return(
+      `row row-cols-${col} mt-2`
+    )
+  }
   return (
     <>
-      <div className="row row-cols-3 mt-2" style={{gap:"4px 0"}}>
+      <div className={colsInRow(props.cols)} style={{gap:"4px 0"}}>
         {props.values.map((item, index) => {
           return (
             <div className="col" key={index}>
@@ -17,7 +22,7 @@ export default function RadioFormFieldButton(props) {
                   id={item}
                   autoComplete="off"
                 />
-                <label className="btn btn-sm btn-light w-100 text-center" htmlFor={item}>
+                <label className="btn btn-sm btn-light w-100 text-center p-0" htmlFor={item}>
                   {item}
                 </label>
             </div>

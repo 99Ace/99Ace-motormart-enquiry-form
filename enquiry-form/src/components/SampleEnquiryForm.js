@@ -21,6 +21,7 @@ export default function SampleEnquiryForm(props) {
   const submitForm = () => {
     console.log("Submitted");
     console.log(form);
+    // Add API link to send out data
   };
   // Event Handler
   const updateFormField = (e) => {
@@ -79,19 +80,23 @@ export default function SampleEnquiryForm(props) {
           value={form.description}
           inputClassName="form-control"
         />
-        <RadioFormField
+        <hr  />
+        <RadioFormFieldButton
+          cols="5"
           name="petrolType"
           updateFormField={updateFormField}
           values={["Petrol", "Diesel", "Hybrid", "EV"]}
           fieldValue={form.petrolType}
         />
-        <RadioFormField
+        <RadioFormField          
           name="transmission"
           updateFormField={updateFormField}
           values={["Auto", "Manual"]}
           fieldValue={form.transmission}
         />
+        <hr/>
         <RadioFormFieldButton
+          cols="3"
           name="mileage"
           updateFormField={updateFormField}
           values={["<10,000km", "20,000km", "30,000km", "40,000km", "50,000km", "60,000km"
